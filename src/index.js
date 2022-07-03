@@ -1,15 +1,15 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+//import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom";
 import Main from "./components/Main"
+import { BrowserRouter } from "react-router-dom";
 
-const App = () => {
-  return (
-    <div className="app">
-      <Main />
-    </div>
-  );
-};
-const Root = createRoot(document.getElementById("root"));
-Root.render(<BrowserRouter><div><App /></div></BrowserRouter>);
+const rootElement = document.getElementById('main');
+
+ReactDOM.render(
+  <BrowserRouter>
+    <Main />
+  </BrowserRouter>,
+  rootElement
+);
 

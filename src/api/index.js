@@ -40,22 +40,18 @@ export const createPost = async (postMade, token) => {
     const data = await response.json();
     return data;
 }
-  
 
-export const userLogin = async (username, password) => {
-    const response = await fetch(`${APIURL}/users/login`, {
-        method: "POST",
+export const updatePost = async (updateObject, token, postId) => {
+    const response = await fetch(`${APIURL}/posts/${postId}`, {
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-            user: {
-                username,
-                password,
-            }
-        })
-    })
-    
+            post: { updateObject },
+        }),
+    });
     const data = await response.json();
     return data;
 };
@@ -70,4 +66,34 @@ export const grabData = async (token) => {
     
     const data = await response.json();
     return data; 
+};
+
+export const deletePost = async (token, postId) => {
+    const response = await fetch(`${APIURL}/posts/${postId}`, {
+        method: "DELETE",
+        headers: {
+            "content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    const data = await response.json();
+    return data;
+};
+
+export const newMessage = async (token, id, content) => {
+    const response = await fetch (`${APIURL}/posts/${id}/messages`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            message: {
+                content,
+            },
+        }),
+    });
+
+    const data = await response.json();
+    return data;
 };
