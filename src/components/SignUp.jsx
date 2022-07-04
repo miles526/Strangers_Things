@@ -1,22 +1,34 @@
 import React, { useState} from "react";
 import { registerUser } from "../api";
+import { useHistory } from "react-router-dom";
 
-const SignUp = ({setToken}) => {
+const SignUp = (setIsLoggedIn) => {
     
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const isLoggedIn = setIsLoggedIn;
+
+    let history = useHistory();
+
+    async function handleClick(event) {
+        event.preventDefault();
+        await registerUser(username, password);
+    
+        setUsername("");
+        setPassword("");
+        const token = localStorage.getItem("token");
+    
+        if (token) {
+          history.push("/");
+          await setIsLoggedIn(true);
+        }
+      }
+    
 
     return (
         <div>
             <form 
-            onSubmit={async (event) => {
-                event.preventDefault();
-                const result = await registerUser(username, password);
-
-                localStorage.setItem("token", result.data.token);
-                const myToken = localStorage.getItem("token");
-                setToken(myToken);
-            }}    
+            onSubmit={handleClick}    
             >
                 <input
                     type="text"

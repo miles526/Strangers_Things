@@ -1,0 +1,65 @@
+.main_container {
+    background-color:navy;
+  }
+  nav {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  nav a {
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .search_bar {
+    padding: 10px;
+    background-color: darkorchid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  h3 {
+    background-color: cornsilk;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0px;
+    height: 75px;
+    padding: 10px;
+    text-align: center;
+    font-size: larger;
+  }
+  h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    display: flex;
+    background-color: lavenderblush;
+    margin: 0px;
+    height: 30px;
+    padding: 10px;
+  }
+  .search_results {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    height: 300px;
+    width: 200px;
+    background-color: aliceblue;
+  }
+  form {
+    display: flex;
+    justify-content: space-between;
+    background-color: navy;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+  img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 18px;
+    padding: 18px;
+  }

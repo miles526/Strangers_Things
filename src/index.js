@@ -4,12 +4,10 @@ import ReactDOM from "react-dom";
 import Main from "./components/Main"
 import { BrowserRouter } from "react-router-dom";
 
-const rootElement = document.getElementById('main');
-
 ReactDOM.render(
   <BrowserRouter>
     <Main />
   </BrowserRouter>,
-  rootElement
+  document.getElementById('main')
 );
 
